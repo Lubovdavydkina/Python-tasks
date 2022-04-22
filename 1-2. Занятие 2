@@ -1,0 +1,49 @@
+HELP='''
+У вас есть 3 списка задач: 
+ - сегодня;
+ - завтра;
+ - другое.
+
+Управляйте списками, используя следующие команды:
+help - справка по программе
+add - добавить задачу в список (название задачи запрашиваем у пользователя)
+show - напечатать все добавленные задачи
+exit - закончить работу'''
+#тройные кавычки позволяют переносить строку
+
+tasks_today=[] #создаем пустой список для наших задач
+tasks_tomorrow=[]
+tasks_other=[]
+
+run=True
+
+while run:
+  command=input('Что будем делать? ')
+  if command=='help':
+    print(HELP)
+  elif command=='show':
+    print(tasks)
+  elif command=='add':
+    date=input('Когда? (сегодня, завтра, другое): ')
+    task=input('Введите название задачи: ')
+    if date=='сегодня':
+      tasks_today.append(task)
+      print('Задача <'+task+'> добавлена в список "Сегодня"')
+    elif date=='завтра':
+      tasks_tomorrow.append(task)
+      print('Задача <'+task+'> добавлена в список "Завтра"')
+    elif date=='другое':
+      tasks_other.append(task)
+      print('Задача <'+task+'> добавлена в список "Другое"')
+    else:
+      date=input('Уточните дату (сегодня, завтра, другое): ')
+
+    
+  elif command=='exit':
+    print('Список готов!')
+    break
+  else:
+    print('Ой...')
+    break
+
+print('До свидания!')
